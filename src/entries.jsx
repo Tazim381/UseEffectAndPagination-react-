@@ -24,6 +24,17 @@ function Entries() {
   if (loading) {
     return <div>Loading........</div>;
   }
+  function changeCurrentPage(n) {
+    setCurrentPage(currentPage + n);
+  }
+  function sortAssending() {
+    entries.sort((a, b) => a.Description.localeCompare(b.Description));
+    setEntries([...entries]);
+  }
+  function sortDescending() {
+    entries.sort((a, b) => b.Description.localeCompare(a.Description));
+    setEntries([...entries]);
+  }
   return (
     <div className="data">
       <table className="table">
@@ -58,17 +69,5 @@ function Entries() {
       </div>
     </div>
   );
-  function changeCurrentPage(n) {
-    setCurrentPage(currentPage + n);
-  }
-  function sortAssending() {
-    entries.sort((a, b) => a.Description.localeCompare(b.Description));
-    setEntries([...entries]);
-  }
-  function sortDescending() {
-    entries.sort((a, b) => b.Description.localeCompare(a.Description));
-    setEntries([...entries]);
-  }
 }
-
 export default Entries;
